@@ -3,9 +3,8 @@ using System.Collections;
 
 public class GameObjectKeyMover : MonoBehaviour {
 	Transform trans;
-
-	public float moveSpeed = 2f;
-	public float turnSpeed = 90f;
+	public float moveSpeed = 2f;	//  2m/sec
+	public float turnSpeed = 90f;	// 90degree/sec
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +20,7 @@ public class GameObjectKeyMover : MonoBehaviour {
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
 
-		trans.Translate(trans.forward * v * moveSpeed * Time.deltaTime);
+		trans.Translate(trans.forward * v * moveSpeed * Time.deltaTime, Space.World);
 		trans.Rotate( new Vector3(0f, Time.deltaTime * turnSpeed * h, 0f) );
 	}
 }
