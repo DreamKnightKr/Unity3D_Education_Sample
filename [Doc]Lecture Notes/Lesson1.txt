@@ -1,0 +1,80 @@
+[강의 내용]
+
+- Unity3D 설치와 맛보기
+  0) 만들어 볼 Scene 보여 주기
+
+ 
+
+  1) 3D 만져 보기.
+
+    -> 새로운 Scene 생성 : [MainMenu]File > New Scene > Save("Step1") > Scene 창과 Game 창을 동시에 띄우기 및 설명한다.
+
+    -> Plane 생성 : [MainMenu]GameObject > Create Other > Plane > 이동& 회전
+
+    -> Cube 생성 :  [MainMenu]GameObject > Create Other > Cube > 이동 &회전
+
+    -> Light 생성 :   [MainMenu]GameObject > Create Other > Direction Light > 이동 & 회전 > Main Camera로 이름 변경
+
+    -> 카메라
+
+      : 기본 카메라 삭제 > Game Scene의 변경 확인 > 카메라 생성 > "[MainMenu]GameObject > Create Other > Camera"
+
+      : 카메라 1개 더 생성 > 3D text  생성 위치, 뎁스, Clear 옵션 조정 등으로 GUI/Main 카메라 분리.
+
+      : 중복  속성 삭제.오디오 리스너 같은 것
+
+    이와 같이 기본적인도형은 유니티에서 제공, 일반적으로 3D 맥스에서 FBX를 넣는 경우도 있을 듯
+
+    -> FBX Import : [MainMenu]Assets > Import New Asset... > Dice.fbx 선택 > Texture 설정&매터리얼에 Texture Import 설정 > Scene에 다가 넣기 > 다시 빼기
+
+      ??? 회전 값, 크기 값 등에 대한설정 은 어디를 따르는지는 추가조사 필요.
+
+      ??? 매터리얼에 대한 재설정이 외 필요한지 명확히 알자.
+
+ 
+
+  2) GameObject와 실재 스크립트 프로그램짜기
+
+    유니티는 모든 것이 GameObject. 그리고 거기에 붙은 Component임. 인스팩터에 보이는 정보는 각 컨포넌트 설정 정보.
+
+    프로그래머 입장에서 기존 보이는 것들은 보면 미리 컴파일된 스크립트라고 생각하는 것이 좋음.
+
+    여기에 나만의 스크립트를 만들어서 개임 오브젝트에 붙이는 것이 유니티를 다루는 프로그래머가 하는 일.
+
+ 
+
+    -> 내가 만든 스크립트 적용하기 : GameObjectKeyMover C#스크립트 생성 >   Scene안에 Cube에 드래그&드롭
+
+    -> GameObject와의 연결 Test : Start 함수에 이름 변경코드 넣기
+
+      : 유니티 엔진 단에서 GameObject와 Script의 연결을 이미 해준다.
+
+    -> 컴포넌트 제어해 보기 : Update 함수에 좌표 회전 변경을 위한 코드 넣기
+
+    -> 개층 구조 : Cube 밑으로 둥근 귀 2개 추가 > 플래이
+
+    -> 프리팹 만들기와 재사용.
+
+ 
+
+  3) Scene 구조와 GUI 코딩 입문
+
+    유니티는 이렇게 Scene -> GameObject들 -> 컴포넌트들을 가지고 게임이 돌아가게 된다.
+
+    하나의 Scene에 올라간 GameObject들은 플래이 시작 때 한꺼번에 올려지는 부하 문제와 Scene안에 모든 GameObject를 작업하는것을 어렵기 때문에
+
+    Scene으로 분리해서 작업을 해준다.
+
+ 
+
+   이에 Scene을 불러오는 작업은 프로그래머가 Script로 작성해야한다. 이를 위해 간략한 GUI 코드도 맛보도록 한다.
+
+   -> 추가 Scene  제작
+
+    : Step1_Move, Step1_Add  생성 및 저장 > 둘 다 Cube 프리팹 추가 > Add에는 카메라 삭제, Move에는 광원 추가 > BuildOption에 Scene 추가.
+
+   -> 이동 동작 Script 만들기
+
+    : Step1 GUI Camera에 GUIScript 만들고 콤포넌트로 추가 > OnGUI 함수에 내용 추가. > DontDestroyOnLoad 설명 및 예외 처리 설명
+
+    : Debug Class 소개 및 콘솔창 확인해 보기.
