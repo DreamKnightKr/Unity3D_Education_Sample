@@ -1,0 +1,39 @@
+[강의 내용]
+1) Unity UI
+- Create Project
+- UI 재배치(Drag& Drop)
+  * 포토샵과 같이 자유 스럽게 UI를 때었다 붙였다 할 수있음
+- UI 설정 Save & Load
+
+* Unity는  Scene Base임.
+  > new Scene 생성
+* Scene안에 있는 모든 것을 GameObject로 부름 (마치 [마켓]에 다양한 물품을 [상품]이라고 부를 것과 비슷)
+  > Camera/Cube, Sphere, 3D Text, Panel 생성 이동+ 위치 +정렬 + 회전 + 크기 조절
+  > FBX파일(스탠리)를 끓어다가 Import하고 Scene에 넣음.
+* Scene은 편집창이고, GameObject은 실재 동직시 보여주는 창임.
+  > Light 생성하여 회전/생상 변경/ 그림자 생성
+  * 공통적인 기능은 UI를 편리하게 제공한다.
+
+* Scene안에GameObject들은 쉽게 Drag&Drop으로 계층관계를 설정할 수 있다.
+  > Sphere를 2개 더 만들어 Cube에 넣음.
+> 미리만들 어 놓은 Scene 데이터 추가 > 기존 Scene  파일 삭제.
+  * Main과 GUI 카메라 보통 2개를 사용
+
+2) GameObject를움직이게하는 Component/Script 그리고 중요 개념인 Prefab
+* Cube object 클릭하면, Inspector 창에 보이는 항목이 Component 이 안에 보이는 값을 이용/변경하는 Component를 생성/추가하면서 개발이 진행됨.
+* Script를 짠다는 것도 이 Component를 만드는 것임.
+> Gameobject Key Mover c# 스크립트 넣기&열기
+> Script를 Cube에 Drag&Drop
+  * Inspector 항목 추가 및 노출 변수가 있는데, Unity의 매우 좋은 기능임. 실행 중 변경 가능.
+* 이런 설정 상태를 저장/재활용 할 수있게하는 것이 Prefab(개별 변경/비교/되돌림/반영)
+
+3) 여러개의 Scene 다루기
+* 모든 작업자가 하나의 Scene으로만 작업 불가능, 분리해서 작업하게됨.
+* Scene 사용 방향은 크게 Move와 Add 두가지로 구분.
+  > Scene  생성(Step1_Move, Step1_Add)
+  > Step1_Move에는 Step1에 카메라 복사, Stanley FBX, Light 생성
+  > Step_Add에는 Stanly FBX만 추가.
+* Scene Move/Add는 프로그래머가 Script 작성을 해야함.
+  > 준비된 GUIScriptt C#을 복사&열기& Add camera GUI
+  > 실행 후 error 내용을 설명, Build Setting에 대한 설명 및 Scene  추가.
+  > 정상 실행 보여주고 C# 코드 열고 핵심 함수 설명.
