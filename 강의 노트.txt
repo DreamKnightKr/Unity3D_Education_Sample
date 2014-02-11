@@ -7,10 +7,12 @@
   : RuntimePlatformClass를 이용 방법
     > 실재 디바이스에서만 동작해야하는 것들 저장 파일 경로 지정 등.
 
+* 게임안에 자원 관리
+
 
 * 빌드에 들어가는 것과 안들어가는 것
-  Resources 폴더 StreamAsset 폴더란?
-  Resources 폴더에 들어가지 않아도 추가되는 것
+  > Resources 폴더 StreamAsset 폴더란?
+  > Resources 폴더에 들어가지 않아도 추가되는 것
 
 * Native와의 통신(iOS/Android)
   : Progress UI plugin을 만들어 보자
