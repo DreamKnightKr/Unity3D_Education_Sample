@@ -13,7 +13,7 @@
   Resources 폴더에 들어가지 않아도 추가되는 것
 
 * Native와의 통신(iOS/Android)
-  : Progress UI를 만들어 보자
+  : Progress UI plugin을 만들어 보자
 
 
 * Export/Import
