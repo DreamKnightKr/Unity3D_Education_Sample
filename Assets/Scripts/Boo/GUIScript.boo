@@ -22,9 +22,12 @@ class GUIScript (MonoBehaviour):
     		// [Unity Doc URL]
     		//	https://docs.unity3d.com/Documentation/Manual/PlatformDependentCompilation.html
     		ifdef UNITY_IPHONE:
-            	GameObject.Instantiate( objTextHello_iOS );
+            	GameObject.Instantiate( objTextHello_iOS )
             ifdef UNITY_ANDROID:
-            	GameObject.Instantiate( objTextHello_Android );
+            	GameObject.Instantiate( objTextHello_Android )
             ifdef UNITY_STANDALONE_WIN:
-            	GameObject.Instantiate( objTextHello_Window );
+            	GameObject.Instantiate( objTextHello_Window )
+            	
+        if GUI.Button(Rect(fPosX, fPosY + (fYInterval * nYPosCount), 200, 30), "Show Resources"):
+        	pass
             	
