@@ -44,7 +44,9 @@ public class GUIScript : MonoBehaviour
             if(null == txt)  //  중복 생성 막자...
                 txt = ((GameObject)GameObject.Instantiate( Resources.Load("Prefabs/text"))).GetComponent<TextMesh>();
 
-            object textRes = Resources.Load("SampleText");
+            //object textRes = Resources.Load("SampleText");
+            object textRes = Resources.Load("SampleTextCSV");
+            //object textRes = Resources.Load("SampleTextXML");
             if(textRes is TextAsset)
             {
                 TextAsset str = textRes as TextAsset;
