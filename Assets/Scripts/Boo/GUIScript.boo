@@ -25,11 +25,11 @@ class GUIScript (MonoBehaviour):
 			// !! Boo currently supports only the ifdef directive. 
 			// [Unity Doc URL]
 			//	https://docs.unity3d.com/Documentation/Manual/PlatformDependentCompilation.html
-			if RuntimePlatform.Android == Application.platform :
+			ifdef UNITY_IPHONE :
 				GameObject.Instantiate( objTextHello_iOS )
-			elif RuntimePlatform.Android == Application.platform :
+			ifdef UNITY_ANDROID :
 				GameObject.Instantiate( objTextHello_Android )
-			else :
+			ifdef UNITY_STANDALONE_OSX:
 				GameObject.Instantiate( objTextHello_Window )
 
 		// Load From Resource
