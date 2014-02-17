@@ -11,12 +11,12 @@ class TextVisibleControl (MonoBehaviour):
 			objText_Editor.SetActive(true)
 		
 		// No 'switch' in Boo
-		if RuntimePlatform.WindowsPlayer == Application.platform:
-    		objText_Window.SetActive(true) // Will Show On exe Build
-    	elif RuntimePlatform.IPhonePlayer == Application.platform:
-    		objText_iOS.SetActive(true) // Will Show On exe Build
-    	if RuntimePlatform.Android == Application.platform:
-    		objText_Android.SetActive(true) // Will Show On exe Build
+		if RuntimePlatform.Android == Application.platform:
+    		objText_Android.SetActive(true) // Will Show On Android Build
+    	if RuntimePlatform.IPhonePlayer == Application.platform:
+    		objText_iOS.SetActive(true) // Will Show On iOS Build
+    	else 
+    		objText_Window.SetActive(true) // Will Show On exe Build    		
 	
 	def Update ():
 		pass
