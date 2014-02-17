@@ -15,7 +15,7 @@ class TextVisibleControl (MonoBehaviour):
     		objText_Android.SetActive(true) // Will Show On Android Build
     	if RuntimePlatform.IPhonePlayer == Application.platform:
     		objText_iOS.SetActive(true) // Will Show On iOS Build
-    	else 
+    	else :
     		objText_Window.SetActive(true) // Will Show On exe Build    		
 	
 	def Update ():
