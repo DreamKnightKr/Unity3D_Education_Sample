@@ -5,25 +5,13 @@ public class GUIScript : MonoBehaviour
 {
 	WWW www = null;
 	string strLoadTypeName = "";
-	// Use this for initialization
-	void Start ()
-	{
-
-	}
-        
-	// Update is called once per frame
-	void Update ()
-	{
-	}
 
 	void OnGUI ()
 	{
-		float fPosX = 0, fPosY = 50, fYInterval = 100;
+		float fPosX = 20, fPosY = 50, fYInterval = 100;
 		int nYPosCount = 0;
 
-		// Load From SteamingAssets
-		nYPosCount++;
-		if (GUI.Button (new Rect (fPosX, fPosY + (fYInterval * nYPosCount), 200, 80), "Load SelectDirPath_Def")) 
+		if (GUI.Button (new Rect (fPosX, fPosY + (fYInterval * nYPosCount), 400, 80), "Load SelectDirPath_Def")) 
 		{
 			strLoadTypeName = "SelectDirPath_Def";
 			string url = Application.streamingAssetsPath + AssetBundleHelper.AssetbundleSubPath + "SelectDirPath_Def.assetbundle";
@@ -34,12 +22,27 @@ public class GUIScript : MonoBehaviour
 			www = new WWW (url);
 			StartCoroutine (LoadAsset ());
 		}
+
+		nYPosCount++;
+		if (GUI.Button (new Rect (fPosX, fPosY + (fYInterval * nYPosCount), 400, 80), "Load SelectDirPath_Def(Cached)")) 
+		{
+			strLoadTypeName = "SelectDirPath_Def";
+			string url = Application.streamingAssetsPath + AssetBundleHelper.AssetbundleSubPath + "SelectDirPath_Def.assetbundle";
+			if (Application.platform != RuntimePlatform.Android)
+				url = "file://" + url;
+			Debug.Log ("Get from : " + url);
+			Debug.Log ("Cach Path : " + Application.temporaryCachePath);
+			
+			www = WWW.LoadFromCacheOrDownload(url, 2014022501);
+			StartCoroutine (LoadAsset ());
+		}
 	}
 
 	IEnumerator LoadAsset ()
 	{
 		while (!www.isDone) {
-				yield return new WaitForSeconds (0.1f);
+			Debug.Log("AssetLoading : " + www.progress);
+			yield return new WaitForEndOfFrame();
 		}
 
 		if (null != www.error)

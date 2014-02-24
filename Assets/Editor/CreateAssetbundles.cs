@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class CreateAssetbundles {
 
-	[MenuItem("AssetBundle/Select Dir Path(+Track Dependency)")]
+	[MenuItem("Assets/Select Dir Path(+Track Dependency)")]
 	static void CreateTableAssetbundles()
 	{
 		string strPath = GetOutputDir() + "SelectDirPath_Def.assetbundle";
