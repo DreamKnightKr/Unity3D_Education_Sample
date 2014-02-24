@@ -2,6 +2,8 @@
 import System.Collections
 
 class GUIScript (MonoBehaviour):
+	public Dummy as GameObject
+	/*
 	public objTextHello_Window as GameObject
 	public objTextHello_iOS as GameObject
 	public objTextHello_Android as GameObject
@@ -74,4 +76,4 @@ class GUIScript (MonoBehaviour):
 			Debug.Log("Load Done")
 
 		yield null
-		
+		*/
