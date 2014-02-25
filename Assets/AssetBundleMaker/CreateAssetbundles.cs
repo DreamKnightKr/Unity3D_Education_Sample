@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 public class CreateAssetbundles {
 
-	[MenuItem("Assets/Select Dir Path(+Track Dependency)")]
+	[MenuItem("Assets/User Select Dir Path(+Track Dependency)")]
 	static void CreateTableAssetbundles()
 	{
-		string strPath = GetOutputDir() + "SelectDirPath_Def.assetbundle";
+        string strPath = GetOutputDir() + "SelectDirPath_Def.assetbundle";
 
 		CreateTableAssetBundles(
 			strPath,
@@ -17,6 +17,25 @@ public class CreateAssetbundles {
 			"",
 			BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets);
 	}
+
+    [MenuItem("AssetBuilder/Fix Dir Path(Packing Target+Track Dependency)")]
+    static void CreateTableAssetbundlesFixPath()
+    {
+        string strPath = GetOutputDir() + "SelectDirPath_Def.assetbundle";
+        string[] strResPaths = AssetDatabase.GetAllAssetPaths();
+        ArrayList objs = new ArrayList();
+
+        foreach(string strResPath in strResPaths)
+        {
+            if( strResPath.Contains("Assets/ForAssetBundle/PackingTargets") )
+               objs.Add( AssetDatabase.LoadMainAssetAtPath(strResPath) );
+        }
+        CreateTableAssetBundles(
+            strPath,
+            objs.ToArray(),
+            "",
+            BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets);
+    }
 	
 	static void CreateTableAssetBundles(string strPath, object[] objs, string strExternFilter, BuildAssetBundleOptions op)
 	{
@@ -46,7 +65,7 @@ public class CreateAssetbundles {
 		else
 			Debug.LogWarning("Nothing To Add > Skip Build AssetBundle.");
 		
-		Debug.Log("* Creating Tables assetbundles. Done");
+        Debug.Log("* Creating Tables assetbundles.\n > " + strPath);
 	}
 
 	static string GetOutputDir()
